@@ -15,11 +15,14 @@ const movie1={
 const App = () => {
     const[movies,setMovies]=useState([]);
     const [searchTerm,setSearchTerm]=useState('');
-    const searchMovies= async(title)=>{
-        const response=await fetch(`${API_URL}&s=${title}`);
-        const data=await response.json();
-        setMovies(data.Search);
-    }
+   const searchMovies = async (title) => {
+const response = await fetch(${API_URL}&s=${title});
+const data = response.json();
+console.log(data)
+data.then((res) => {
+setMovies(res.Search);
+});
+}
     useEffect(()=>{
         searchMovies('Spiderman');
 
